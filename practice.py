@@ -31,19 +31,26 @@ avg_november_night = get_average_by_month(df, 'Noviembre', 'Ocupación (%)', 'No
 
 months = ['Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre']
 
+day = [avg_june, avg_july, avg_august, avg_september, avg_october, avg_november]
+night = [avg_june_night, avg_july_night, avg_august_night, avg_september_night, avg_october_night, avg_november_night]
+
 new_df = pd.DataFrame({
     'Mes': months,
-    'Ocupación (%)': 
+    'Ocupación (%) día': day,
+    'Ocupación (%) noche': night
 })
 
-fig, ax = plt.subplots()
-ax.plot(months, [avg_june, avg_july, avg_august, avg_september, avg_october, avg_november], label = 'Día')
-ax.plot(months, [avg_june_night, avg_july_night, avg_august_night, avg_september_night, avg_october_night, avg_november_night], label = 'Noche')
+#fig = plt.subplots()
+ax = plt.gca()
+# ax.plot(months, day, label = 'Día')
+# ax.plot(months, night, label = 'Noche')
+new_df.plot(kind = 'line', x = 'Mes', y = 'Ocupación (%) día', ax=ax)
+new_df.plot(kind = 'line', x = 'Mes', y = 'Ocupación (%) noche', color = 'red', ax=ax)
 
 ax.set(xlabel='Mes', ylabel='Ocupación (%)',
        title='Porcentaje de ocupación por meses')
 #ax.grid()
 
-fig.savefig("test.png")
+# fig.savefig("test.png")
 plt.legend()
 plt.show()
