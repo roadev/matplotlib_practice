@@ -1,6 +1,7 @@
 # %matplotlib inline 
 import matplotlib as mpl 
 import matplotlib.pyplot as plt
+plt.style.use('fivethirtyeight') 
 import pandas as pd
 import numpy as np
 
@@ -28,7 +29,7 @@ avg_con_night = get_average_by_month(df, 'Consultorios', 'Pacientes', 'Noche')
 avg_cir_night = get_average_by_month(df, 'Observación cirugía', 'Pacientes', 'Noche')
 avg_int_night = get_average_by_month(df, 'Medicina Interna Urgencias', 'Ocupación (%)', 'Noche')
 
-services = ['Pediatría', 'Trauma', 'UCI', 'Consultorios', 'Observación cirugía', 'Medicina Interna Urgencias']
+services = ['Pediatría', 'Trauma', 'UCI', 'Consultorios', 'Observ. cirugía', 'Med. Int Urgencias']
 
 day = [avg_ped, avg_tra, avg_uci, avg_con, avg_cir, avg_int]
 night = [avg_ped_night, avg_tra_night, avg_uci_night, avg_con_night, avg_cir_night, avg_int_night]
